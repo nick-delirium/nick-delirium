@@ -15,26 +15,6 @@
 ### Each card usage
 ---
 
-![](./0-profile-details.svg)
-
-```
-![](https://raw.githubusercontent.com/nick-delirium/nick-delirium/master/profile-summary-card-output/jolly/0-profile-details.svg)
-```
-
-    
-
----
-
-![](./1-repos-per-language.svg)
-
-```
-![](https://raw.githubusercontent.com/nick-delirium/nick-delirium/master/profile-summary-card-output/jolly/1-repos-per-language.svg)
-```
-
-    
-
----
-
 ![](./2-most-commit-language.svg)
 
 ```
@@ -49,6 +29,16 @@
 
 ```
 ![](https://raw.githubusercontent.com/nick-delirium/nick-delirium/master/profile-summary-card-output/jolly/3-stats.svg)
+```
+
+    
+
+---
+
+![](./4-productive-time.svg)
+
+```
+![](https://raw.githubusercontent.com/nick-delirium/nick-delirium/master/profile-summary-card-output/jolly/4-productive-time.svg)
 ```
 
     
