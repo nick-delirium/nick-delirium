@@ -1,7 +1,7 @@
 name: Deploy site
 
-# Builds site/ and publishes it to GitHub Pages. Only site changes trigger a deploy,
-# so the daily profile-card commits don't redeploy the page.
+# Builds site/ and publishes it to GitHub Pages (nick-delirium.github.io/nick-delirium/), and pings the
+# root site repo to rebuild too. Only site changes trigger it, so the daily card commits don't redeploy.
 on:
   push:
     branches: [master]
@@ -36,6 +36,18 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+  # The root site (nick-delirium.github.io) builds from this repo too. Ping it so it redeploys now
+  # instead of at its daily run. Needs a SITE_DISPATCH_TOKEN secret; without it this job is a no-op.
+  mirror:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+    steps:
+      - name: Trigger nick-delirium.github.io deploy
+        if: env.GH_TOKEN != ''
+        run: gh api repos/${{ github.repository_owner }}/${{ github.repository_owner }}.github.io/dispatches -f event_type=site-updated
 
   deploy:
     needs: build
