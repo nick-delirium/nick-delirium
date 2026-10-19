@@ -3,14 +3,6 @@ name: GitHub-Profile-Summary-Cards
 on:
   create:
   push:
-    # site-only pushes don't need fresh cards (and would add a bot commit to every deploy)
-    paths-ignore:
-      - "site/**"
-      - "tools/**"
-      - "package.json"
-      - "package-lock.json"
-      - ".gitignore"
-      - ".github/workflows/pages.yml"
   schedule: # execute every 24 hours
     - cron: "* */24 * * *"
   workflow_dispatch:
