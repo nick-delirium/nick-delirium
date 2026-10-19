@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" data-theme="night-city" data-layout="split">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>delirium — Senior Software Engineer</title>
+  <meta name="description" content="delirium — Senior Software Engineer and founding engineer at OpenReplay, Paris. Frontend and JavaScript lead: Session-replay internals, fast tracker and player cores, mobile SDKs, AI tooling." />
+  <meta name="theme-color" content="#07080c" />
+  <link rel="canonical" href="https://nick-delirium.github.io/nick-delirium/" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="delirium — Senior Software Engineer" />
+  <meta property="og:description" content="Founding engineer at OpenReplay. I build the code that records the web and the player that replays it." />
+  <meta property="og:url" content="https://nick-delirium.github.io/nick-delirium/" />
+  <meta property="og:image" content="https://nick-delirium.github.io/nick-delirium/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&text=%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%E5%B1%85%E9%85%92%E5%B1%8B%E3%82%AB%E3%82%AA%E3%82%B1%E3%83%9B%E3%83%86%E3%83%AB%E5%AF%BF%E5%8F%B8%E8%96%AC%E5%B1%80%E9%9B%BB%E8%84%B3%E6%9C%AA%E6%9D%A5%E6%9D%B1%E4%BA%AC%E6%96%B0%E5%AE%BF%E5%A4%9C%E5%96%AB%E8%8C%B6%E5%96%B6%E6%A5%AD%E4%B8%AD%E5%8D%B1%E9%99%BA%E3%83%8D%E3%83%91%E3%83%81%E3%82%B3%E4%BA%8C%E5%8D%81%E5%9B%9B%E6%99%82%E3%83%90%E6%84%9B%E9%BB%92%E9%BE%8D%E5%8F%B0%E6%98%A0%E7%94%BB%E9%A4%A8&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script>
+    // apply saved settings before first paint to avoid a theme flash
+    try {
+      const s = JSON.parse(localStorage.getItem("nd.settings") || "{}");
+      const q = new URLSearchParams(location.search);
+      const d = document.documentElement;
+      d.dataset.theme = q.get("theme") || s.theme || "night-city";
+      d.dataset.layout = q.get("layout") || s.layout || "split";
+      if (s.crt === false) d.classList.add("no-crt");
+    } catch (e) {}
+    document.documentElement.classList.add("js");
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "delirium",
+      "jobTitle": "Senior Software Engineer",
+      "worksFor": { "@type": "Organization", "name": "OpenReplay", "url": "https://openreplay.com" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+      "knowsLanguage": ["en", "ru", "fr"],
+      "sameAs": ["https://github.com/nick-delirium", "https://www.linkedin.com/in/deliriumnick"],
+      "url": "https://nick-delirium.github.io/nick-delirium/"
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#whoami">Skip to content</a>
+
+  <!-- ───────── boot ───────── -->
+  <div id="boot" aria-hidden="true">
+    <pre class="boot-logo">
+██████╗ ███████╗██╗     ██╗██████╗ ██╗██╗   ██╗███╗   ███╗
+██╔══██╗██╔════╝██║     ██║██╔══██╗██║██║   ██║████╗ ████║
+██║  ██║█████╗  ██║     ██║██████╔╝██║██║   ██║██╔████╔██║
+██║  ██║██╔══╝  ██║     ██║██╔══██╗██║██║   ██║██║╚██╔╝██║
+██████╔╝███████╗███████╗██║██║  ██║██║╚██████╔╝██║ ╚═╝ ██║
+╚═════╝ ╚══════╝╚══════╝╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝     ╚═╝</pre>
+    <pre class="boot-log"></pre>
+    <div class="boot-bar"><i></i></div>
+    <div class="boot-skip">press any key to skip</div>
+  </div>
+
+  <!-- ───────── top bar ───────── -->
+  <header class="topbar">
+    <a class="brand" href="#whoami" aria-label="delirium — top">
+      <span class="brand-mark">◢</span><span class="brand-name">delirium</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#whoami" data-nav="whoami">whoami</a>
+      <a href="#now" data-nav="now">now</a>
+      <a href="#experience" data-nav="experience">experience</a>
+      <a href="#projects" data-nav="projects">projects</a>
+      <a href="#stack" data-nav="stack">stack</a>
+      <a href="#origin" data-nav="origin">origin</a>
+      <a href="#offduty" data-nav="offduty">off-duty</a>
+      <a href="#contact" data-nav="contact">contact</a>
+    </nav>
+    <div class="top-tools">
+      <span class="clock" title="Paris local time"><i>PAR</i> <span id="clock">--:--:--</span></span>
+      <button class="tool-btn" id="btn-term" type="button" title="Terminal ( ` )" aria-label="Open terminal">&gt;_</button>
+      <button class="tool-btn tool-sys" id="btn-sys" type="button" aria-expanded="false" aria-controls="sys" title="Display settings">SYS</button>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+  </header>
+
+  <!-- ───────── settings panel ───────── -->
+  <aside id="sys" class="sys" hidden aria-label="Display settings">
+    <div class="sys-head"><span>◢ SYS.CONFIG</span><button type="button" class="sys-x" aria-label="Close settings">×</button></div>
+    <fieldset class="sys-group">
+      <legend>theme <kbd>t</kbd></legend>
+      <div class="sys-themes">
+        <button type="button" data-set-theme="night-city" class="swatch"><span class="sw" style="--a:#fcee0a;--b:#00f0ff;--c:#ff003c;--d:#07080c"></span>night city</button>
+        <button type="button" data-set-theme="neon-noir" class="swatch"><span class="sw" style="--a:#ff2a6d;--b:#05d9e8;--c:#b967ff;--d:#0a0618"></span>neon noir</button>
+        <button type="button" data-set-theme="phosphor" class="swatch"><span class="sw" style="--a:#39ff14;--b:#ffb000;--c:#ff4040;--d:#020a04"></span>phosphor</button>
+        <button type="button" data-set-theme="smog" class="swatch"><span class="sw" style="--a:#ff8c1a;--b:#2de2c4;--c:#ff3b30;--d:#0c0704"></span>smog amber</button>
+      </div>
+    </fieldset>
+    <fieldset class="sys-group">
+      <legend>ascii layout <kbd>l</kbd></legend>
+      <div class="seg">
+        <button type="button" data-set-layout="split">split ⅓</button>
+        <button type="button" data-set-layout="window">window</button>
+        <button type="button" data-set-layout="bg">background</button>
+      </div>
+    </fieldset>
+    <fieldset class="sys-group">
+      <legend>glyph density</legend>
+      <div class="seg">
+        <button type="button" data-set-res="ultra">ultra</button>
+        <button type="button" data-set-res="hi">hi</button>
+        <button type="button" data-set-res="med">med</button>
+        <button type="button" data-set-res="lo">lo</button>
+      </div>
+    </fieldset>
+    <fieldset class="sys-group">
+      <legend>fx</legend>
+      <div class="toggles">
+        <label><input type="checkbox" data-set-fx="crt" /> crt</label>
+        <label><input type="checkbox" data-set-fx="bloom" /> bloom</label>
+        <label><input type="checkbox" data-set-fx="glitch" /> decode</label>
+        <label><input type="checkbox" data-set-fx="lens" /> cursor lens</label>
+        <label><input type="checkbox" data-set-fx="motion" /> motion</label>
+      </div>
+    </fieldset>
+    <div class="sys-actions">
+      <button type="button" id="btn-reboot">reboot</button>
+      <button type="button" id="btn-term2">terminal</button>
+    </div>
+  </aside>
+
+  <!-- ───────── ascii viewport ───────── -->
+  <aside id="viz" aria-hidden="true">
+    <div class="viz-bar" data-noshock>
+      <span class="viz-bar-title">viz.exe — <b id="viz-name">BOOT</b></span>
+      <span class="viz-bar-btns">
+        <button type="button" data-viz="min" title="Minimize" tabindex="-1">_</button>
+        <button type="button" data-viz="max" title="Maximize" tabindex="-1">□</button>
+      </span>
+    </div>
+    <div class="viz-stage"><canvas id="ascii"></canvas></div>
+    <div class="viz-hud">
+      <div class="hud-tl"><b id="hud-title">◢ INIT</b><span id="hud-caption">spinning up renderer…</span></div>
+      <div class="hud-br"><span id="hud-stats">-- fps</span></div>
+      <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+    </div>
+  </aside>
+
+  <!-- ───────── content ───────── -->
+  <main id="content">
+
+    <!-- 01 WHOAMI -->
+    <section id="whoami" class="page hero" data-scene="cosmos" aria-label="Introduction">
+      <div class="page-inner">
+        <h1 class="hero-name">delirium<span class="hero-dot" aria-hidden="true">.</span></h1>
+        <p class="hero-role">Senior Software Engineer <span>· Paris</span></p>
+        <p class="print-only print-id"><b class="js-print-name">delirium</b>Senior Software Engineer · Paris, France · <span class="js-mail-text">mail [at] proton.me</span> · github.com/nick-delirium · linkedin.com/in/deliriumnick · nick-delirium.github.io/nick-delirium</p>
+        <p class="hero-lede">I build the code that records the web, and the player that replays it.</p>
+        <p class="hero-pitch">
+          Founding engineer at <a href="https://openreplay.com" rel="noopener">OpenReplay</a>, the open-source session-replay platform.
+          I own the frontend end to end: tracker, player, browser extension and mobile SDKs. These days I'm also building AI tooling and on-device ML.
+        </p>
+        <ul class="facts">
+          <li><b>#2</b> of 73 contributors to OpenReplay</li>
+          <li><b>1.2M</b> npm downloads a month</li>
+          <li><b>40–50%</b> cut in pipeline costs</li>
+          <li><b data-years-since="2018-01">8+</b> years shipping</li>
+        </ul>
+        <div class="hero-foot">
+          <a class="hero-cta js-mail" href="#contact" data-u="nick.delirium" data-d="proton.me">Get in touch <i>→</i></a>
+          <nav class="hero-links" aria-label="Elsewhere">
+            <a href="https://github.com/nick-delirium" rel="noopener">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/deliriumnick" rel="noopener">LinkedIn ↗</a>
+            <button type="button" id="btn-print">Save CV</button>
+          </nav>
+        </div>
+        <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to senior frontend &amp; AI engineering roles in Paris</p>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">scroll</div>
+    </section>
+
+    <!-- 02 NOW -->
+    <section id="now" class="page" data-scene="embed" aria-labelledby="h-now">
+      <div class="page-inner">
+        <header class="sec-head">
+          <h2 id="h-now" class="sec-title" data-text="NOW">NOW</h2>
+          <span class="sec-meta">// oct 2026</span>
+        </header>
+        <p class="lead">
+          At OpenReplay I recently shipped a rewrite of the replay player core, following a rework of the tracker's batch pipeline.
+          Outside work, I build tools for AI coding agents and experiment with on-device ML in JavaScript.
+        </p>
+        <ol class="entries">
+          <li class="entry" data-scene="helix" data-scene-hover>
+            <h3 class="entry-name"><a href="https://github.com/nick-delirium/dolly" rel="noopener">dolly</a></h3>
+            <p class="entry-meta">open source · 2026 <span class="state ok">live</span></p>
+            <div class="entry-body">
+              <p>Task memory for AI coding agents, kept as Markdown in the repository: a task board, a log of decisions and versioned specs, so the next session picks up where the last one stopped. Works with Claude Code, opencode and pi, with zero runtime dependencies.</p>
+              <ul class="tags"><li>TypeScript</li><li>Claude Code</li><li>MCP</li></ul>
+            </div>
+          </li>
+          <li class="entry entry-redacted" data-scene="embed" data-scene-hover>
+            <h3 class="entry-name"><span class="redact" aria-label="redacted project name">██████</span>.js</h3>
+            <p class="entry-meta">in the lab <span class="state wip">classified</span></p>
+            <div class="entry-body">
+              <p>Contextual search powered by a small Gemma embedding model running in the browser. No server round-trips: the vectors live next to your data. More soon.</p>
+              <ul class="tags"><li>Gemma</li><li>embeddings</li><li>WebGPU / WASM</li></ul>
+            </div>
+          </li>
+        </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 EXPERIENCE: pinned slider, one job per step -->
+    <section id="experience" class="page exp" data-scene="blackhole" aria-labelledby="h-exp" style="--n: 7">
+      <div class="exp-pin">
+        <div class="page-inner">
+          <header class="sec-head">
+            <h2 id="h-exp" class="sec-title" data-text="EXPERIENCE">EXPERIENCE</h2>
+            <span class="sec-meta">// 2018 → now</span>
+          </header>
+          <div class="exp-body">
+            <ol class="exp-rail" aria-label="Employers">
+              <li><button type="button" data-go="0"><b>OpenReplay</b><i>2022 – now</i></button></li>
+              <li class="rail-sub"><button type="button" data-go="1"><b>deep dive</b><i>year by year</i></button></li>
+              <li><button type="button" data-go="2"><b>OZON</b><i>2021 – 22</i></button></li>
+              <li><button type="button" data-go="3"><b>Fortis</b><i>2020 – 21</i></button></li>
+              <li><button type="button" data-go="4"><b>Studybay</b><i>2019 – 20</i></button></li>
+              <li><button type="button" data-go="5"><b>Kupibilet</b><i>2019</i></button></li>
+              <li><button type="button" data-go="6"><b>BMSGroup</b><i>2018</i></button></li>
+            </ol>
+            <div class="exp-slides">
+              <article class="job" data-scene="blackhole">
+                <h3 class="job-co"><a href="https://openreplay.com" rel="noopener">OpenReplay</a></h3>
+                <div class="job-role">Senior Software Engineer · R&amp;D · Founding engineer</div>
+                <div class="job-when"><span>MAY 2022 → NOW</span><i data-since="2022-05"></i><em>Paris · open source</em></div>
+                <p class="job-impact">I have full ownership of the frontend: the replay player, the JS and Swift tracker libraries, the <b>Spot</b> Chrome extension and the MCP apps server. I also work directly with enterprise clients every day.</p>
+                <ul class="job-list">
+                  <li><b>Cut the main processing pipeline by 40–50%</b> in space and processing time, saving most enterprise clients hundreds of thousands of USD a year.</li>
+                  <li><b>Rewrote the tracker and player cores.</b> The tracker now uses a versioned binary batch protocol with gzip in a Web Worker; the player core uses shallow observables for CPU efficiency.</li>
+                  <li><b>Made the frontend bundle ~40% smaller</b> and builds 1–2 minutes faster by migrating from webpack 1 to Parcel and Vite.</li>
+                  <li>Led the full UI rework of the session replayer while keeping legacy support across enterprise deployments.</li>
+                  <li>Shipped offline and conditional recording, feature flags, on-the-fly compression and multi-tab sessions, and moved session heuristics into the browser.</li>
+                  <li>Fixed tracker memory leaks. Set up commit linting, AI PR review, per-module coverage and CI/CD from zero. Shipped under HIPAA, GDPR, CCPA and SOC 2.</li>
+                </ul>
+                <button type="button" class="dive-link" data-go="1">Deep dive: what I built, year by year <i>→</i></button>
+                <ul class="tags"><li>TypeScript</li><li>React</li><li>MobX</li><li>Web Workers</li><li>Swift</li><li>React Native</li><li>Flutter</li></ul>
+              </article>
+
+              <article class="job job-dive" data-scene="blackhole">
+                <h3 class="job-co">OpenReplay <span>/ deep dive</span></h3>
+                <div class="job-role">What changed in the tracker and the player, year by year</div>
+                <ul class="dive-facts">
+                  <li><b>~77%</b> of tracker commits</li>
+                  <li><b>~60%</b> of player commits</li>
+                  <li><b>#2</b> contributor overall</li>
+                </ul>
+                <ol class="timeline-log">
+                  <li><time>2022·11</time><p>Split the player into modules and removed Redux and class components from its core (co-led).</p></li>
+                  <li><time>2023·04</time><p>Batch compression in the tracker (v7).</p></li>
+                  <li><time>2023·06</time><p>Multi-tab sessions over <code>BroadcastChannel</code>. Proxy-based console and network capture.</p></li>
+                  <li><time>2023·10</time><p><code>requestIdleCallback</code> commit scheduling and render-lag detection (v10).</p></li>
+                  <li><time>2023·11</time><p>Swift iOS tracker, mobile replayer, React Native connector.</p></li>
+                  <li><time>2024</time><p>Canvas recording, WebSocket capture, conditional and offline recording, the Spot extension, cross-domain iframes.</p></li>
+                  <li><time>2025</time><p>In-house CSS selector generator, <code>privateMode</code>, network batcher, product-analytics SDK.</p></li>
+                  <li><time>2026</time><p>Binary batch V2/V3 (v18), gzip and heuristics in the worker (v19), Flutter SDK, MCP app, player core rewrite.</p></li>
+                </ol>
+              </article>
+
+              <article class="job" data-scene="warehouse">
+                <h3 class="job-co"><a href="https://ozon.ru" rel="noopener">OZON</a></h3>
+                <div class="job-role">Senior Frontend Engineer</div>
+                <div class="job-when"><span>SEP 2021 → MAY 2022</span><i>9 mo</i><em>Saint Petersburg</em></div>
+                <p class="job-impact">Delivery and warehouse tooling for Russia's largest online marketplace.</p>
+                <ul class="job-list">
+                  <li>Co-authored the secure delivery flow with OTP confirmation.</li>
+                  <li>Implemented a new warehouse management solution.</li>
+                  <li>Worked with UX design to resolve user pain points and streamline the product delivery flow.</li>
+                  <li>Completed management and team-lead training.</li>
+                </ul>
+              </article>
+
+              <article class="job" data-scene="globe">
+                <h3 class="job-co"><a href="https://monopoly.online" rel="noopener">Fortis</a></h3>
+                <div class="job-role">Senior Front-End Engineer</div>
+                <div class="job-when"><span>APR 2020 → SEP 2021</span><i>1 yr 6 mo</i><em>Saint Petersburg</em></div>
+                <p class="job-impact">Main development company behind monopoly.online, Russia's largest online logistics platform.</p>
+                <ul class="job-list">
+                  <li>Built new cargo-tracking, document-management and hauling-auction applications.</li>
+                  <li>Implemented a secure document-signing protocol.</li>
+                  <li>Co-founded the brand's UI component library.</li>
+                  <li>Mentored and onboarded junior developers.</li>
+                </ul>
+              </article>
+
+              <article class="job" data-scene="brain">
+                <h3 class="job-co"><a href="https://studybay.com" rel="noopener">Studybay</a></h3>
+                <div class="job-role">Senior Frontend Developer</div>
+                <div class="job-when"><span>OCT 2019 → APR 2020</span><i>7 mo</i><em>Saint Petersburg</em></div>
+                <p class="job-impact">EdTech platform. Modernized the frontend stack and its build pipeline.</p>
+                <ul class="job-list">
+                  <li>Replaced Gulp with a new webpack setup: builds ~300% faster.</li>
+                  <li>Ported the legacy Backbone app to React.</li>
+                  <li>Redesigned the landing page and core parts of the internal platform.</li>
+                  <li>Introduced CI/CD with e2e and unit tests.</li>
+                </ul>
+              </article>
+
+              <article class="job" data-scene="flight">
+                <h3 class="job-co"><a href="https://kupibilet.ru" rel="noopener">Kupibilet</a></h3>
+                <div class="job-role">Frontend Developer</div>
+                <div class="job-when"><span>JAN 2019 → OCT 2019</span><i>10 mo</i><em>Saint Petersburg</em></div>
+                <p class="job-impact">Flight booking. Delivered a full redesign of the user page, ticket booking and billing.</p>
+                <ul class="job-list">
+                  <li>Refactored the flight booking flow end to end with redux-saga.</li>
+                  <li>Built components for the brand's component library (Storybook).</li>
+                  <li>Took part in code review and architecture discussions.</li>
+                </ul>
+              </article>
+
+              <article class="job" data-scene="builder">
+                <h3 class="job-co"><a href="https://loyalty.bms.group" rel="noopener">BMSGroup</a></h3>
+                <div class="job-role">Frontend Developer</div>
+                <div class="job-when"><span>JAN 2018 → JAN 2019</span><i>1 yr 1 mo</i><em>Saint Petersburg</em></div>
+                <p class="job-impact">Internal analytics and branding tools, plus an automated site generator.</p>
+                <ul class="job-list">
+                  <li>Built internal analytics and branding tools with Vue.js and Node.js.</li>
+                  <li>Built a generator that produced a full client brand website on demand from a WhatsApp message.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+          <div class="exp-ctrl">
+            <button type="button" class="exp-btn" data-step="-1" aria-label="Previous role">←</button>
+            <span class="exp-count"><b id="exp-i">01</b> / <span id="exp-n">07</span></span>
+            <button type="button" class="exp-btn" data-step="1" aria-label="Next role">→</button>
+            <span class="exp-hint">scroll, use ← → keys, or pick a company</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PROJECTS -->
+    <section id="projects" class="page" data-scene="network" aria-labelledby="h-proj">
+      <div class="page-inner">
+        <header class="sec-head">
+          <h2 id="h-proj" class="sec-title" data-text="PROJECTS">PROJECTS</h2>
+          <span class="sec-meta">// side projects · hover to switch the feed</span>
+        </header>
+        <div class="cards">
+          <article class="card" data-scene="helix" data-scene-hover>
+            <h3 class="card-name"><a href="https://github.com/nick-delirium/dolly" rel="noopener">dolly</a></h3>
+            <p class="card-desc">Git-tracked task memory and planning for AI coding agents. Agents log the work; humans validate it.</p>
+            <p class="card-meta">2026 · CLI<span class="state ok">active</span></p>
+          </article>
+          <article class="card" data-scene="mesh" data-scene-hover>
+            <h3 class="card-name"><a href="https://github.com/nick-delirium/lemmy-fennec" rel="noopener">Arctius</a></h3>
+            <p class="card-desc">A fast, accessible mobile client for Lemmy, the decentralized link aggregator. 33★ on GitHub.</p>
+            <p class="card-meta">2023–24 · mobile<span class="state">archived</span></p>
+          </article>
+          <article class="card" data-scene="chess" data-scene-hover>
+            <h3 class="card-name"><a href="https://nick-delirium.github.io/notalearn/" rel="noopener">Notation Quest</a></h3>
+            <p class="card-desc">Learn chess notation by playing: rebuild real games move by move, or find hidden pieces from the notation.</p>
+            <p class="card-meta">2026 · PWA<span class="state ok">live</span></p>
+          </article>
+          <article class="card" data-scene="flow" data-scene-hover>
+            <h3 class="card-name"><a href="https://github.com/nick-delirium/bluejay" rel="noopener">bluejay</a></h3>
+            <p class="card-desc">An open-source Reddit client for Android, built to learn Flutter properly.</p>
+            <p class="card-meta">2023 · Flutter<span class="state">study</span></p>
+          </article>
+          <article class="card" data-scene="weave" data-scene-hover>
+            <h3 class="card-name"><a href="https://github.com/nick-delirium/hsl" rel="noopener">Hansang Lab</a></h3>
+            <p class="card-desc">A mobile app uniting ethnic Koreans in Russia. I led development and releases for iOS and Android and wrote about half the code.</p>
+            <p class="card-meta">2019–20 · lead<span class="state">non-profit</span></p>
+          </article>
+          <article class="card card-redacted entry-redacted" data-scene="embed" data-scene-hover>
+            <h3 class="card-name"><span class="redact" aria-label="redacted project name">████</span>.js</h3>
+            <p class="card-desc">On-device Gemma embeddings for contextual search. Watch this space.</p>
+            <p class="card-meta">2026 · JS<span class="state wip">in the lab</span></p>
+          </article>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 STACK -->
+    <section id="stack" class="page" data-scene="plasma" aria-labelledby="h-stack">
+      <div class="page-inner">
+        <header class="sec-head">
+          <h2 id="h-stack" class="sec-title" data-text="STACK">STACK</h2>
+          <span class="sec-meta">// ls ~/tools</span>
+        </header>
+        <div class="stack">
+          <div class="stack-row"><span class="stack-k">core</span><ul class="tags big"><li>TypeScript</li><li>JavaScript</li><li>Dart</li><li>Swift</li></ul><ul class="tags"><li>Python</li><li>Go</li></ul></div>
+          <div class="stack-row"><span class="stack-k">ui</span><ul class="tags"><li>React</li><li>Vue</li><li>Svelte</li><li>MobX</li><li>Redux</li><li>redux-saga</li><li>Zustand</li><li>Tailwind</li><li>Styled Components</li></ul></div>
+          <div class="stack-row"><span class="stack-k">mobile</span><ul class="tags"><li>React Native</li><li>Expo</li><li>Flutter</li><li>iOS (Swift)</li></ul></div>
+          <div class="stack-row"><span class="stack-k">browser</span><ul class="tags"><li>Web Workers</li><li>CompressionStream</li><li>MutationObserver</li><li>Proxy</li><li>BroadcastChannel</li><li>Canvas</li><li>WebRTC</li><li>Chrome MV3</li></ul></div>
+          <div class="stack-row"><span class="stack-k">tooling</span><ul class="tags"><li>Vite</li><li>Parcel</li><li>Webpack</li><li>Bun</li><li>Jest</li><li>Cypress</li><li>ESLint</li><li>GitHub Actions</li><li>Linear</li></ul></div>
+          <div class="stack-row"><span class="stack-k">server</span><ul class="tags"><li>Node</li><li>Express</li><li>Koa</li><li>FastAPI</li></ul></div>
+          <div class="stack-row"><span class="stack-k">ai</span><ul class="tags"><li>Claude Code</li><li>OpenAI Codex</li><li>MCP</li><li>Ollama</li><li>Copilot</li><li>CodeRabbit</li><li>Greptile</li><li>on-device embeddings</li></ul></div>
+          <div class="stack-row"><span class="stack-k">languages</span><ul class="tags"><li>English · professional</li><li>Russian · native</li><li>French · elementary</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 ORIGIN -->
+    <section id="origin" class="page" data-scene="molecule" aria-labelledby="h-origin">
+      <div class="page-inner narrow">
+        <header class="sec-head">
+          <h2 id="h-origin" class="sec-title" data-text="ORIGIN">ORIGIN</h2>
+          <span class="sec-meta">// molecules → modules</span>
+        </header>
+        <div class="degree">
+          <h3>Bachelor's degree, Chemical Engineering</h3>
+          <p>Saint Petersburg State Institute of Technology · 2014–2018</p>
+        </div>
+        <ul class="certs">
+          <li><b>Winner</b> · HackUniversity hackathon, powered by HERE</li>
+          <li><b>Certified</b> · Triplebyte</li>
+        </ul>
+        <p class="lead">
+          I trained as a chemical engineer, and coding was the hobby. Then a crypto startup asked for help, and the hobby became the career.
+          I'm still debugging reactions, just in the DOM now.
+        </p>
+      </div>
+    </section>
+
+    <!-- 07 OFF-DUTY -->
+    <section id="offduty" class="page" data-scene="llm" aria-labelledby="h-off">
+      <div class="page-inner narrow">
+        <header class="sec-head">
+          <h2 id="h-off" class="sec-title" data-text="OFF-DUTY">OFF-DUTY</h2>
+          <span class="sec-meta">// hover a line, or a title</span>
+        </header>
+        <ul class="hobbies">
+          <li data-scene="stargate" data-scene-hover tabindex="0"><span class="hb-k">EVE Online</span><span class="hb-v">fly safe, o7</span></li>
+          <li data-scene="racing" data-scene-hover tabindex="0"><span class="hb-k">sim racing</span><span class="hb-v">GT3 and open-wheelers</span></li>
+          <li data-scene="escapement" data-scene-hover tabindex="0"><span class="hb-k">mechanical watches</span><span class="hb-v">28,800 beats an hour</span></li>
+          <li data-scene="dune" data-scene-hover tabindex="0"><span class="hb-k">reading</span><span class="hb-v hb-list"><span class="hb-t" data-scene="dune" data-scene-hover>Dune</span><span class="hb-t" data-scene="neuromancer" data-scene-hover>Neuromancer</span><span class="hb-t" data-scene="sauron" data-scene-hover>The Lord of the Rings</span><span class="hb-t">Harry Potter</span><span class="hb-t">The Witcher</span><span class="hb-t">Fool</span><span class="hb-t">War and Peace</span><span class="hb-t">Masters of Rome</span><span class="hb-t">Eagle of Rome</span><span class="hb-t">The Invincible</span><span class="hb-t" data-scene="solaris" data-scene-hover>Solaris</span><span class="hb-t" data-scene="city" data-scene-hover>Do Androids Dream of Electric Sheep?</span><span class="hb-t" data-scene="shinjuku" data-scene-hover>Akira</span></span></li>
+          <li data-scene="anime" data-scene-hover tabindex="0"><span class="hb-k">anime</span><span class="hb-v hb-list"><span class="hb-t" data-scene="shinjuku" data-scene-hover>Akira</span><span class="hb-t" data-scene="gundam" data-scene-hover>Gundam</span><span class="hb-t" data-scene="fleet" data-scene-hover>Legend of the Galactic Heroes</span><span class="hb-t" data-scene="frieren" data-scene-hover>Frieren</span><span class="hb-t" data-scene="sigils" data-scene-hover>Witch Hat Atelier</span><span class="hb-t" data-scene="aot" data-scene-hover>Attack on Titan</span><span class="hb-t" data-scene="mushishi" data-scene-hover>Mushishi</span></span></li>
+          <li data-scene="bees" data-scene-hover tabindex="0"><span class="hb-k">someday</span><span class="hb-v">a bee farm</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 08 CONTACT -->
+    <section id="contact" class="page" data-scene="scope" aria-labelledby="h-contact">
+      <div class="page-inner narrow">
+        <header class="sec-head">
+          <h2 id="h-contact" class="sec-title" data-text="CONTACT">CONTACT</h2>
+          <span class="sec-meta">// open channel</span>
+        </header>
+        <p class="lead">An interesting problem, an ambitious team, or just a chat about session replay, AI or EVE? Get in touch.</p>
+        <div class="contact">
+          <a class="contact-line js-mail" href="#contact" data-u="nick.delirium" data-d="proton.me">
+            <span class="cl-k">mail</span><span class="cl-v js-mail-text">nick.delirium [at] proton.me</span><span class="cl-go">↗</span>
+          </a>
+          <a class="contact-line" href="https://github.com/nick-delirium" rel="noopener">
+            <span class="cl-k">github</span><span class="cl-v">github.com/nick-delirium</span><span class="cl-go">↗</span>
+          </a>
+          <a class="contact-line" href="https://www.linkedin.com/in/deliriumnick" rel="noopener">
+            <span class="cl-k">linkedin</span><span class="cl-v">linkedin.com/in/deliriumnick</span><span class="cl-go">↗</span>
+          </a>
+          <button class="contact-line" type="button" id="btn-term3">
+            <span class="cl-k">terminal</span><span class="cl-v">try <code>sudo hire delirium</code></span><span class="cl-go">&gt;_</span>
+          </button>
+        </div>
+        <footer class="foot">
+          <span>© <span id="year">2026</span> delirium · Paris</span>
+          <span>no frameworks · no trackers (ironic, I know) · every frame is text</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────── terminal ───────── -->
+  <div id="term" class="term" hidden role="dialog" aria-label="Terminal" data-noshock>
+    <div class="term-bar"><span>◢ tty0 — visitor@delirium</span><button type="button" class="term-x" aria-label="Close terminal">×</button></div>
+    <div class="term-out" id="term-out" aria-live="polite"></div>
+    <form class="term-in" id="term-form" autocomplete="off">
+      <label for="term-input" class="term-prompt">visitor@delirium:~$</label>
+      <input id="term-input" spellcheck="false" autocapitalize="off" autocomplete="off" />
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <div class="crt" aria-hidden="true"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
